@@ -10,26 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Shell.ViewModels;
 
-namespace Shell.Views
+namespace Company.Application.Launch.Views
 {
     /// <summary>
-    /// Interaction logic for Main.xaml
+    /// Interaction logic for LaunchView.xaml
     /// </summary>
-    public partial class MainView : Window
+    public partial class LaunchView : UserControl
     {
-        public MainView()
+        public LaunchView()
         {
             InitializeComponent();
-
-            this.Loaded += MainView_Loaded;
-        }
-
-        private void MainView_Loaded(object sender, RoutedEventArgs e)
-        {
-            var vm = DataContext as MainViewModel;
         }
     }
 }

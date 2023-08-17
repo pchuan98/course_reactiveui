@@ -27,11 +27,6 @@ namespace Shell
             return new Views.MainView();
         }
 
-        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
-        {
-            base.ConfigureModuleCatalog(moduleCatalog);
-        }
-
         protected override IModuleCatalog CreateModuleCatalog()
         {
             return new DirectoryModuleCatalog()

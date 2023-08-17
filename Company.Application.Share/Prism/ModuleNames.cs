@@ -9,4 +9,6 @@ namespace Company.Application.Share.Prism;
 public static class ModuleNames
 {
     public const string ModulePath = @".\Modules";
+
+    public const string LaunchModuleName = "Launch";
 }
