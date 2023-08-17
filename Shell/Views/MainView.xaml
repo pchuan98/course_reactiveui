@@ -1,0 +1,18 @@
+﻿<Window
+    x:Class="Shell.Views.MainView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:local="clr-namespace:Shell.Views"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:share="clr-namespace:Company.Application.Share.Prism;assembly=Company.Application.Share"
+    xmlns:viewModels="clr-namespace:Shell.ViewModels"
+    Title="{Binding Title}"
+    Width="800"
+    Height="450"
+    d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
+    mc:Ignorable="d">
+    <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.Main}" />
+</Window>
