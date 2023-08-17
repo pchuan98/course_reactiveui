@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+
+  </PropertyGroup>
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Mvvm" Version="8.2.1" />
+		<PackageReference Include="HandyControls" Version="3.4.5" />
+		<PackageReference Include="Prism.Unity" Version="8.1.97" />
+		<PackageReference Include="Prism.Wpf" Version="8.1.97" />
+		<PackageReference Include="ReactiveUI.Fody" Version="19.4.1" />
+		<PackageReference Include="ReactiveUI.WPF" Version="19.4.1" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="ViewModules\" />
+	  <Folder Include="Views\" />
+	</ItemGroup>
+</Project>
