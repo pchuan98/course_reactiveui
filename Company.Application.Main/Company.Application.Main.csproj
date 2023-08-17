@@ -19,4 +19,8 @@
     <ProjectReference Include="..\Company.Application.Share\Company.Application.Share.csproj" />
   </ItemGroup>
 
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)bin\Debug\net6.0-windows\$(ProjectName).dll&quot; &quot;$(SolutionDir)Shell\bin\Debug\net6.0-windows\Modules&quot; /Y /S&#xD;&#xA;xcopy &quot;$(ProjectDir)bin\Release\net6.0-windows\$(ProjectName).dll&quot; &quot;$(SolutionDir)Shell\bin\Release\net6.0-windows\Modules&quot; /Y /S" />
+  </Target>
+
 </Project>

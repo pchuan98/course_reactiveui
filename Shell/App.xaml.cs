@@ -6,9 +6,9 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Company.Application.Share.Prism;
 using Prism.Ioc;
-using Prism.Modularity;
-using Company.Application.Main;
+using Prism.Modularity; 
 
 namespace Shell
 {
@@ -30,8 +30,14 @@ namespace Shell
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
             base.ConfigureModuleCatalog(moduleCatalog);
+        }
 
-            moduleCatalog.AddModule<MainModule>();
+        protected override IModuleCatalog CreateModuleCatalog()
+        {
+            return new DirectoryModuleCatalog()
+            {
+                ModulePath = ModuleNames.ModulePath,
+            };
         }
     }
 }
