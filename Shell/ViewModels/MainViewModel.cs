@@ -1,26 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CommunityToolkit.Mvvm.ComponentModel;
-using Prism.Modularity;
-using Prism.Regions;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
+using Company.Application.Share.Events;
+using Company.Application.Share.Models;
+using Company.Application.Share.Prism;
+using Company.Core.Ioc;
+using Prism.Events;
 
 namespace Shell.ViewModels;
 
 public partial class MainViewModel : ObservableObject
 {
-    public IModuleManager ModuleManager { get; }
-
-    public IRegionManager RegionManager { get; }
-
-    [ObservableProperty]
-    private string _title = "Hello World!";
-
-    public MainViewModel(IModuleManager module, IRegionManager region)
+    [RelayCommand]
+    void Loaded()
     {
-        ModuleManager = module;
-        RegionManager = region;
+        PrismProvider.ModuleManager!.LoadModule(ModuleNames.LaunchModuleName);
+        PrismProvider.RegionManager!.RequestNavigate(RegionNames.Main, ViewNames.LaunchView);
+
+        // subscribe
+        PrismProvider.Aggregator!.GetEvent<LaunchSuccessEvent>().Subscribe(OnLaunch, ThreadOption.UIThread);
+    }
+
+    private void OnLaunch(LaunchModel obj)
+    {
+        PrismProvider.ModuleManager!.LoadModule(ModuleNames.MainModuleName);
+
+        PrismProvider.RegionManager!.RequestNavigate(RegionNames.Main, ViewNames.MainView);
     }
 }

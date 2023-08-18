@@ -4,29 +4,29 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Security.Cryptography.Pkcs;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
+using Company.Application.Share.Events;
+using Company.Application.Share.Models;
+using Company.Core.Ioc;
+using HandyControl.Controls;
+using Prism.Commands;
+using ReactiveUI;
+using ReactiveUI.Fody.Helpers;
 
 namespace Company.Application.Launch.ViewModels;
 
-public partial class LaunchViewModel : ObservableObject
+public class LaunchViewModel : ReactiveObject
 {
-    [ObservableProperty]
-    private string _info = "";
+    [Reactive]
+    public LaunchModel LaunchModel { get; set; } = new();
 
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(Percent))]
-    private int _count = 500;
-
-    [ObservableProperty]
-    [NotifyPropertyChangedFor(nameof(Percent))]
-    private int _index = 0;
-
-    public double Percent => (double)(Index / (double)Count) * 100;
-
-    public LaunchViewModel()
+    public DelegateCommand CheckCommand => new DelegateCommand(() =>
     {
+        MessageBox.Show("开始执行测试");
+
         var timer = new DispatcherTimer(priority: DispatcherPriority.Render)
         {
             Interval = TimeSpan.FromMilliseconds(10),
@@ -34,12 +34,19 @@ public partial class LaunchViewModel : ObservableObject
 
         timer.Tick += (s, e) =>
         {
-            if (Index < Count) Index++;
-            else timer.Stop();
+            if (LaunchModel.Index < LaunchModel.Count) LaunchModel.Index++;
+            else
+            {
+                timer.Stop();
+                Thread.Sleep(2);
 
-            Info = $"Current load : {Index}/{Count}";
+                PrismProvider.Aggregator.GetEvent<LaunchSuccessEvent>().Publish(LaunchModel);
+            }
+
+            // publish
+            LaunchModel.Info = $"Current load : {LaunchModel.Index}/{LaunchModel.Count}";
         };
 
         timer.Start();
-    }
+    });
 }

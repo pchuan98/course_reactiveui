@@ -21,11 +21,17 @@
             Grid.Row="0"
             ArcThickness="4"
             ShowText="True"
-            Text="{Binding Percent, StringFormat={}{0:N2}%}"
-            Value="{Binding Percent, Mode=OneWay}" />
+            Text="{Binding LaunchModel.Percent, StringFormat={}{0:N2}%}"
+            Value="{Binding LaunchModel.Percent, Mode=OneWay}" />
 
-        <StackPanel Grid.Row="1">
-            <TextBlock Text="{Binding Info}" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <TextBlock VerticalAlignment="Center" Text="{Binding LaunchModel.Info, Mode=TwoWay}" />
+            <Button
+                Margin="100,0"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Command="{Binding CheckCommand}"
+                Content="Start" />
         </StackPanel>
 
     </Grid>

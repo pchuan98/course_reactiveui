@@ -11,6 +11,7 @@ using Prism.Regions;
 
 namespace Company.Application.Main;
 
+[Module(ModuleName = ModuleNames.MainModuleName, OnDemand = true)]
 public class MainModule : IModule
 {
     public void RegisterTypes(IContainerRegistry containerRegistry)

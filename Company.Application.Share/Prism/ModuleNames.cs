@@ -11,4 +11,6 @@ public static class ModuleNames
     public const string ModulePath = @".\Modules";
 
     public const string LaunchModuleName = "Launch";
+
+    public const string MainModuleName = "Main";
 }
