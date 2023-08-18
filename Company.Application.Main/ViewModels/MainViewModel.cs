@@ -11,4 +11,6 @@ public partial class MainViewModel:ObservableObject
 {
     [ObservableProperty]
     private string _title = "Hello World!";
+
+
 }

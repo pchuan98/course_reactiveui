@@ -6,13 +6,27 @@
     xmlns:hc="https://handyorg.github.io/handycontrol"
     xmlns:local="clr-namespace:Company.Application.Launch.Views"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:viewModules="clr-namespace:Company.Application.Launch.ViewModules"
-    d:DataContext="{d:DesignInstance viewModules:LaunchViewModel}"
+    xmlns:prism="http://prismlibrary.com/"
+    xmlns:viewModels="clr-namespace:Company.Application.Launch.ViewModels"
+    d:DataContext="{d:DesignInstance viewModels:LaunchViewModel}"
+    prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="32" />
+        </Grid.RowDefinitions>
+
         <hc:CircleProgressBar
+            Grid.Row="0"
             ArcThickness="4"
             ShowText="True"
-            Text="{Binding Percent}" />
+            Text="{Binding Percent, StringFormat={}{0:N2}%}"
+            Value="{Binding Percent, Mode=OneWay}" />
+
+        <StackPanel Grid.Row="1">
+            <TextBlock Text="{Binding Info}" />
+        </StackPanel>
+
     </Grid>
 </UserControl>

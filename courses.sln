@@ -17,6 +17,13 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Hardwave", "Hardwave", "{51C330AF-0093-4E3C-A0BD-EF1BA207C4A6}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Shell", "Shell\Shell.csproj", "{72032CDD-799E-44BF-90C9-734BDE04353A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{6EF9F6D0-4E0D-459C-8B20-21266B36545F} = {6EF9F6D0-4E0D-459C-8B20-21266B36545F}
+		{812FBDF0-75F5-4018-8648-51A8A2CF990E} = {812FBDF0-75F5-4018-8648-51A8A2CF990E}
+		{83A3E5A0-0568-4655-96E2-904A3DE13B77} = {83A3E5A0-0568-4655-96E2-904A3DE13B77}
+		{9281236E-51E9-4D0B-A715-AFA7E3B75645} = {9281236E-51E9-4D0B-A715-AFA7E3B75645}
+		{A884C533-63C0-45DE-AAC9-7BEF4792FB50} = {A884C533-63C0-45DE-AAC9-7BEF4792FB50}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.Application.Share", "Company.Application.Share\Company.Application.Share.csproj", "{20DA25EF-78D0-43A8-9944-B7D7D3AE8E27}"
 EndProject
@@ -28,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.UI", "Company.UI\Co
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.Application.Main", "Company.Application.Main\Company.Application.Main.csproj", "{A884C533-63C0-45DE-AAC9-7BEF4792FB50}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Company.Application.Launch", "Company.Application.Launch\Company.Application.Launch.csproj", "{83A3E5A0-0568-4655-96E2-904A3DE13B77}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Company.Application.Launch", "Company.Application.Launch\Company.Application.Launch.csproj", "{83A3E5A0-0568-4655-96E2-904A3DE13B77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

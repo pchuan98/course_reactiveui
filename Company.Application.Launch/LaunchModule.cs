@@ -11,7 +11,7 @@ using Prism.Modularity;
 namespace Company.Application.Launch;
 
 [Module(ModuleName = ModuleNames.LaunchModuleName, OnDemand = true)]
-public class LoginModule : IModule
+public class LaunchModule : IModule
 {
     public void RegisterTypes(IContainerRegistry containerRegistry)
     {

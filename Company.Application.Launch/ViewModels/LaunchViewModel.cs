@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 
-namespace Company.Application.Launch.ViewModules;
+namespace Company.Application.Launch.ViewModels;
 
 public partial class LaunchViewModel : ObservableObject
 {
@@ -17,22 +17,22 @@ public partial class LaunchViewModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Percent))]
-    private int _count = 50;
+    private int _count = 500;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Percent))]
     private int _index = 0;
 
-    public double Percent => (double)Index / (double)Count;
+    public double Percent => (double)(Index / (double)Count) * 100;
 
     public LaunchViewModel()
     {
-        var timer = new DispatcherTimer
+        var timer = new DispatcherTimer(priority: DispatcherPriority.Render)
         {
-            Interval = TimeSpan.FromSeconds(1)
+            Interval = TimeSpan.FromMilliseconds(10),
         };
 
-        timer.Tick+= (s, e) =>
+        timer.Tick += (s, e) =>
         {
             if (Index < Count) Index++;
             else timer.Stop();

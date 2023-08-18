@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Company.Application.Share.Prism;
 using Shell.ViewModels;
 
 namespace Shell.Views
@@ -30,6 +31,10 @@ namespace Shell.Views
         private void MainView_Loaded(object sender, RoutedEventArgs e)
         {
             var vm = DataContext as MainViewModel;
+
+            vm!.ModuleManager.LoadModule(ModuleNames.LaunchModuleName);
+
+            vm!.RegionManager.RequestNavigate(RegionNames.Main,"LaunchView");
         }
     }
 }
