@@ -8,7 +8,8 @@ using System.Threading.Tasks;
 using System.Windows;
 using Company.Application.Share.Prism;
 using Prism.Ioc;
-using Prism.Modularity; 
+using Prism.Modularity;
+using Company.Core;
 
 namespace Shell
 {
@@ -25,6 +26,15 @@ namespace Shell
         protected override Window CreateShell()
         {
             return new Views.MainView();
+        }
+
+        protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
+        {
+            base.ConfigureModuleCatalog(moduleCatalog);
+
+            moduleCatalog.AddModule<CoreModule>();
+
+            
         }
 
         protected override IModuleCatalog CreateModuleCatalog()
