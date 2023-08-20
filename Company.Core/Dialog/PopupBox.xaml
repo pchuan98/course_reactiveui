@@ -5,13 +5,25 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:Company.Core.Dialog"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    Width="100"
-    Height="100"
+    x:Name="Root"
+    AllowsTransparency="True"
+    Opacity="0.5"
     mc:Ignorable="d">
-    <Grid Background="Red">
-        <Border
-            Background="Red"
-            BorderThickness="1"
-            CornerRadius="10" />
-    </Grid>
+    <Border
+        MinWidth="100"
+        MinHeight="35"
+        Background="SlateGray"
+        BorderThickness="1"
+        CornerRadius="10"
+        Opacity="{Binding ElementName=Root, Path=Opacity}">
+        <TextBlock
+            Margin="10"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Background="Transparent"
+            FontSize="18"
+            Foreground="Black"
+            Text="{Binding Message, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=local:PopupBox}, UpdateSourceTrigger=PropertyChanged}"
+            TextWrapping="Wrap" />
+    </Border>
 </Popup>

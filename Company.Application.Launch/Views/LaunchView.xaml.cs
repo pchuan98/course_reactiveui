@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Company.Core.Ioc;
 
 namespace Company.Application.Launch.Views
 {
@@ -23,6 +24,19 @@ namespace Company.Application.Launch.Views
         public LaunchView()
         {
             InitializeComponent();
+
+            ZhChecked.Checked += ZhChecked_Checked;
+            EnChecked.Checked += EnChecked_Checked;
+        }
+
+        private void EnChecked_Checked(object sender, RoutedEventArgs e)
+        {
+            PrismProvider.LanguageManager?.Set(Core.Constant.Language.En);
+        }
+
+        private void ZhChecked_Checked(object sender, RoutedEventArgs e)
+        {
+            PrismProvider.LanguageManager?.Set(Core.Constant.Language.Zh);
         }
     }
 }

@@ -15,7 +15,7 @@ public partial class LaunchModel : ObservableObject
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Percent))]
-    private int _count = 150;
+    private int _count = 15;
 
     [ObservableProperty]
     [NotifyPropertyChangedFor(nameof(Percent))]

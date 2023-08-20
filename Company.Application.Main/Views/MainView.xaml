@@ -8,12 +8,9 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:Company.Application.Main.ViewModels"
     d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
-    d:DesignHeight="450"
-    d:DesignWidth="800"
     prism:ViewModelLocator.AutoWireViewModel="True"
     mc:Ignorable="d">
     <TextBlock
-        Background="DarkCyan"
         FontSize="28"
         FontWeight="Bold"
         Text="{Binding Title}"

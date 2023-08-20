@@ -33,7 +33,6 @@ namespace Shell
             base.ConfigureModuleCatalog(moduleCatalog);
 
             moduleCatalog.AddModule<CoreModule>();
-
             
         }
 

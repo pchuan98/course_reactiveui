@@ -10,6 +10,7 @@ using System.Windows.Threading;
 using CommunityToolkit.Mvvm.ComponentModel;
 using Company.Application.Share.Events;
 using Company.Application.Share.Models;
+using Company.Core.Dialog;
 using Company.Core.Ioc;
 using HandyControl.Controls;
 using Prism.Commands;
@@ -23,7 +24,9 @@ public class LaunchViewModel : ReactiveObject
     [Reactive]
     public LaunchModel LaunchModel { get; set; } = new();
 
-    public DelegateCommand CheckCommand => new DelegateCommand(() =>
+    public DelegateCommand CheckCommand => new DelegateCommand(Test);
+
+    void Test()
     {
         MessageBox.Show("开始执行测试");
 
@@ -38,9 +41,11 @@ public class LaunchViewModel : ReactiveObject
             else
             {
                 timer.Stop();
-                Thread.Sleep(2);
+                Thread.Sleep(100);
 
-                PrismProvider.Aggregator.GetEvent<LaunchSuccessEvent>().Publish(LaunchModel);
+                PopupBox.Show("hello");
+
+                PrismProvider.Aggregator?.GetEvent<LaunchSuccessEvent>().Publish(LaunchModel);
             }
 
             // publish
@@ -48,5 +53,10 @@ public class LaunchViewModel : ReactiveObject
         };
 
         timer.Start();
-    });
+    }
+
+    public LaunchViewModel()
+    {
+        //Test();
+    }
 }

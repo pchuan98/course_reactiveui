@@ -32,6 +32,20 @@
                 VerticalAlignment="Center"
                 Command="{Binding CheckCommand}"
                 Content="Start" />
+
+            <TextBlock VerticalAlignment="Center" Text="{DynamicResource Info}" />
+
+            <StackPanel Orientation="Horizontal">
+                <RadioButton
+                    x:Name="ZhChecked"
+                    Margin="5,0"
+                    Content="中文"
+                    IsChecked="True" />
+                <RadioButton
+                    x:Name="EnChecked"
+                    Margin="5,0"
+                    Content="English" />
+            </StackPanel>
         </StackPanel>
 
     </Grid>

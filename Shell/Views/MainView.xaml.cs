@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Company.Application.Share.Prism;
 using Shell.ViewModels;
+using Window = HandyControl.Controls.Window;
 
 namespace Shell.Views
 {

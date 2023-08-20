@@ -19,13 +19,15 @@ public sealed class PrismProvider
         IRegionManager regionManager,
         IDialogService dialogService,
         IEventAggregator aggregator,
-        IModuleManager moduleManager)
+        IModuleManager moduleManager,
+        ILangManager langManager)
     {
         Container = container;
         RegionManager = regionManager;
         DialogService = dialogService;
         Aggregator = aggregator;
         ModuleManager = moduleManager;
+        LanguageManager = langManager;
     }
 
     /// <summary>
@@ -52,5 +54,11 @@ public sealed class PrismProvider
     /// 
     /// </summary>
     public static IModuleManager? ModuleManager { get; private set; }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public static ILangManager? LanguageManager { get; private set; }
+
 
 }
