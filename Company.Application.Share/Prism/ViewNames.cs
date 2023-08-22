@@ -12,4 +12,6 @@ public static class ViewNames
     public const string MainView = "MainView";
 
     public const string LaunchView = "LaunchView";
+
+    public const string MenuView = "MenusView";
 }

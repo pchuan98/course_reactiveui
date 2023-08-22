@@ -57,6 +57,6 @@ public class LaunchViewModel : ReactiveObject
 
     public LaunchViewModel()
     {
-        //Test();
+        Test();
     }
 }

@@ -36,6 +36,14 @@ public partial class MainViewModel : ObservableObject
     {
         PrismProvider.ModuleManager!.LoadModule(ModuleNames.MainModuleName);
         PrismProvider.RegionManager!.RequestNavigate(RegionNames.Main, ViewNames.MainView);
+
+        LoadOthers();
+    }
+
+    private void LoadOthers()
+    {
+        // menu load
+        PrismProvider.ModuleManager!.LoadModule(ModuleNames.MenuModuleName);
     }
 
     private void NavigationService_Navigated(object? sender, RegionNavigationEventArgs e)

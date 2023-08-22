@@ -11,9 +11,9 @@
     xmlns:share="clr-namespace:Company.Application.Share.Prism;assembly=Company.Application.Share"
     xmlns:viewModels="clr-namespace:Shell.ViewModels"
     Title="{Binding Title}"
-    Width="0"
-    Height="0"
     d:DataContext="{d:DesignInstance viewModels:MainViewModel}"
+    d:DesignHeight="800"
+    d:DesignWidth="1200"
     prism:ViewModelLocator.AutoWireViewModel="True"
     SystemBackdropType="Mica"
     Topmost="True"
@@ -25,6 +25,21 @@
             <i:InvokeCommandAction Command="{Binding LoadedCommand}" />
         </i:EventTrigger>
     </i:Interaction.Triggers>
-    <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.Main}" />
+
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="450" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.Menu}" />
+        </Grid>
+        <Grid Grid.Column="1">
+            <ContentControl prism:RegionManager.RegionName="{x:Static share:RegionNames.Main}" />
+        </Grid>
+    </Grid>
+
 
 </hc:Window>

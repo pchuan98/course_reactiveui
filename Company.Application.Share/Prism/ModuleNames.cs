@@ -13,4 +13,6 @@ public static class ModuleNames
     public const string LaunchModuleName = "Launch";
 
     public const string MainModuleName = "Main";
+
+    public const string MenuModuleName = "Menu";
 }

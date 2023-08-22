@@ -9,4 +9,6 @@ namespace Company.Application.Share.Prism;
 public static class RegionNames
 {
     public const string Main = "Main";
+
+    public const string Menu = "Menu";
 }
